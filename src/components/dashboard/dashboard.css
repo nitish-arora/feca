@@ -1,0 +1,28 @@
+.ne-s-main-container {
+    background: #f2f2f2;
+    height: 100vh;
+    display: flex;
+}
+
+.ne-s-main-container .ne-s-target-toolbar {
+    height: 70px;
+    background: white;
+}
+
+.ne-s-main-container .ne-s-sidenav-target-container {
+    height: 100%;
+    width: 100%;
+}
+
+.ne-s-sidenav-target-container .ne-s-sidenav-outlet > h3 {
+    padding-left: 16px;
+}
+
+.ne-s-sidenav-target-container .ne-s-sidenav-outlet {
+    width: 100%;
+    height: calc(100% - 74px);
+}
+
+.ne-s-sidenav-outlet .home-title {
+    padding: 20px;
+}

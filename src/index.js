@@ -1,10 +1,42 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import {
+  Route,
+  Switch,
+  Redirect,
+  BrowserRouter as Router
+} from "react-router-dom";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import App from "./components/App";
+import Dashboard from "./components/dashboard";
+import Logout from "./components/logout";
+import Notfound from "./components/notfound";
+import * as serviceWorker from "./serviceWorker";
+
+const routing = (
+  <Router>
+    <React.Fragment>
+      <Switch>
+        <Route exact path="/" component={App} />
+        <Route
+          path="/home"
+          render={() =>
+            !!localStorage.getItem("id_token") ? (
+              <Dashboard />
+            ) : (
+              <Redirect to="/" />
+            )
+          }
+        />
+        <Route path="/logout" component={Logout} />
+        <Route component={Notfound} />
+      </Switch>
+    </React.Fragment>
+  </Router>
+);
+
+ReactDOM.render(routing, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

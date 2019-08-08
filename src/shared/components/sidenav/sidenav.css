@@ -1,0 +1,43 @@
+.ne-s-sidenav-container {
+    height: 100vh;
+    background: #212426;
+    min-width: 256px;
+}
+
+.ne-s-sidenav-container .ne-s-logotype-item {
+    height: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+.ne-s-logotype-item > img {
+    max-width: 112px;
+}
+
+.ne-s-tree .menu-list {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-size: 13px;
+    min-height: 35px; 
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.menu-list .text-header {
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: absolute;
+    left: 70px;
+}
+
+.ne-s-tree .menu-list {
+    color: #b6b6b6;
+    display: flex;
+    align-items: center;
+}
+
+.ne-s-tree .selected-sidenav {
+    color: #68d122;
+}

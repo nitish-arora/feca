@@ -1,0 +1,71 @@
+.ne-s-login-form-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.ne-s-login-form-container .ne-s-login-form {
+    width: 400px;
+    position: relative;
+    text-align: right;
+    background: white;
+}
+
+.ne-s-login-form .ne-s-login-form-toolbar {
+    display: flex;
+    box-sizing: border-box;
+    padding: 0 16px;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+    background-color: #68d122 !important;
+    color: white !important;
+    height: 64px;
+    }
+
+.ne-s-login-form-toolbar > h2 {
+    font-weight: 500;
+}
+
+.ne-s-login-form form {
+    width: 270px !important;
+    margin: 20px 32px 0 32px;
+}
+
+.ne-s-login-form button {
+    margin: 10px 32px 32px 32px;
+    border-radius: 30px;
+    height: 36px;
+    width: 88px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.ne-s-login-form .error {
+    height: 19px;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+    color: #d63a47;
+}
+
+.ne-s-login-form button.disabled {
+    background-color: #f2f2f2;
+    color: #b6b6b6;
+}
+
+.ne-s-login-form button.not-disabled {
+    background-color: #6aa81c;
+    color: white;
+}
+
+.ne-s-login-form .form-field {
+    /* height: 35px; */
+}

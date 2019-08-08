@@ -1,0 +1,26 @@
+.ne-s-profile-container {
+    height: 70px;
+    float: right;
+}
+
+.ne-s-profile-container .profile-toolbar {
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    height: 70px;
+}
+
+.ne-s-profile-container .profile-toolbar .ne-s-text-name {
+    margin-right: 32px;
+    margin-left: 5px;
+    font-size: 14px;
+    height: 24px;
+}
+
+.ne-s-profile-container .profile-toolbar .ne-s-logout-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px 7px;
+}
