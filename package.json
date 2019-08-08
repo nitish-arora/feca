@@ -2,7 +2,7 @@
   "name": "netent-bofe-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://nitish-arora.github.io/feca/",
+  "homepage": "http://nitish-arora.github.io/feca/",
   "dependencies": {
     "@material-ui/core": "^4.3.0",
     "@material-ui/icons": "^4.2.1",
