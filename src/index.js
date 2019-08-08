@@ -15,7 +15,7 @@ import Notfound from "./components/notfound";
 import * as serviceWorker from "./serviceWorker";
 
 const routing = (
-  <Router>
+  <Router basename={process.env.PUBLIC_URL}>
     <React.Fragment>
       <Switch>
         <Route exact path="/" component={App} />
