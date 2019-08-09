@@ -1,6 +1,6 @@
 class HttpHelper {
   domain =
-    "http://aus-backoffice-e2e-test.sta-openshift-app.nix.cydmodule.com/aus/v3";
+    "//aus-backoffice-e2e-test.sta-openshift-app.nix.cydmodule.com/aus/v3";
 
   /** performs api call with required headers */
   fetch = (url, options, isLoggedIn, token) => {
