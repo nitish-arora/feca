@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.fa8cee07.chunk.css",
-    "main.js": "/static/js/main.399e7eff.chunk.js",
-    "main.js.map": "/static/js/main.399e7eff.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/js/2.5f8800c9.chunk.js": "/static/js/2.5f8800c9.chunk.js",
-    "static/js/2.5f8800c9.chunk.js.map": "/static/js/2.5f8800c9.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.2ebcc1cb7f5545505acc75bfc9847409.js": "/precache-manifest.2ebcc1cb7f5545505acc75bfc9847409.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.fa8cee07.chunk.css.map": "/static/css/main.fa8cee07.chunk.css.map",
-    "static/media/login-view.css": "/static/media/hero-startpage-better-gaming-1920x1000.bfd50cf9.jpg"
+    "main.css": "/feca/static/css/main.7d9d8ee8.chunk.css",
+    "main.js": "/feca/static/js/main.2bef8efa.chunk.js",
+    "main.js.map": "/feca/static/js/main.2bef8efa.chunk.js.map",
+    "runtime~main.js": "/feca/static/js/runtime~main.2e851de5.js",
+    "runtime~main.js.map": "/feca/static/js/runtime~main.2e851de5.js.map",
+    "static/js/2.5f8800c9.chunk.js": "/feca/static/js/2.5f8800c9.chunk.js",
+    "static/js/2.5f8800c9.chunk.js.map": "/feca/static/js/2.5f8800c9.chunk.js.map",
+    "index.html": "/feca/index.html",
+    "precache-manifest.7be832f123dd45c9ff86d7237320eba5.js": "/feca/precache-manifest.7be832f123dd45c9ff86d7237320eba5.js",
+    "service-worker.js": "/feca/service-worker.js",
+    "static/css/main.7d9d8ee8.chunk.css.map": "/feca/static/css/main.7d9d8ee8.chunk.css.map",
+    "static/media/login-view.css": "/feca/static/media/hero-startpage-better-gaming-1920x1000.bfd50cf9.jpg"
   }
 }
