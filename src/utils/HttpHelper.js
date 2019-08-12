@@ -1,7 +1,6 @@
-class HttpHelper {
-  domain =
-    "//aus-backoffice-e2e-test.sta-openshift-app.nix.cydmodule.com/aus/v3";
+import * as Api from './../constants/api';
 
+class HttpHelper {
   /** performs api call with required headers */
   fetch = (url, options, isLoggedIn, token) => {
     const headers = {
@@ -14,7 +13,7 @@ class HttpHelper {
       headers["Authorization"] = "Bearer " + token;
     }
 
-    return fetch(`${this.domain}${url}`, {
+    return fetch(`${Api.DOMAIN}${url}`, {
       headers,
       ...options
     })

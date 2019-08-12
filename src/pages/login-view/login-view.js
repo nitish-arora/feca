@@ -1,9 +1,8 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
-import Login from "../../shared/components/login";
-import * as Constants from "./../../constants";
-import AuthHelper from "./../../utils/AuthHelper";
 
+import Login from "../../shared/components/login";
+import * as Constants from "./../../constants/login-view";
+import AuthHelper from "./../../utils/AuthHelper";
 import "./login-view.css";
 
 /** Container component for login form */
@@ -30,7 +29,7 @@ class LoginView extends React.Component {
           });
         } else {
           this.setState({ error: false });
-          this.props.history.push("/home");
+          this.props.history.push("/dashboard");
         }
       })
       .catch(err => {
@@ -49,7 +48,7 @@ class LoginView extends React.Component {
   /** redirect user to home page who is already logged in */
   componentWillMount() {
     if (this.Auth.isLoggedIn()) {
-      this.props.history.push("/home");
+      this.props.history.push("/dashboard");
     }
   }
 
@@ -74,4 +73,4 @@ class LoginView extends React.Component {
   }
 }
 
-export default withRouter(LoginView);
+export default LoginView;

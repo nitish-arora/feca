@@ -8,10 +8,10 @@ import {
   BrowserRouter as Router
 } from "react-router-dom";
 
-import App from "./components/App";
-import Dashboard from "./components/dashboard";
-import Logout from "./components/logout";
-import Notfound from "./components/notfound";
+import App from "./pages/App";
+import Dashboard from "./pages/dashboard";
+import Logout from "./pages/logout";
+import Notfound from "./pages/notfound";
 import * as serviceWorker from "./serviceWorker";
 
 const routing = (
@@ -20,7 +20,7 @@ const routing = (
       <Switch>
         <Route exact path="/" component={App} />
         <Route
-          path="/home"
+          path="/dashboard"
           render={() =>
             !!localStorage.getItem("id_token") ? (
               <Dashboard />

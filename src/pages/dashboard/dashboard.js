@@ -18,24 +18,18 @@ const links = [
     icon: <Home />
   },
   {
-    header: "Combobox",
-    link: "https://nitish-arora.github.io/combobox/",
-    icon: <TrendingUp />
-  },
-  {
     header: "Mosh Programming",
     link: "https://programmingwithmosh.com/",
     icon: <TrendingUp />
   },
   {
-    header: "BOFE",
-    link:
-      "http://bofe-backoffice-e2e-test.stb-openshift-app.nix.cydmodule.com/",
+    header: "Cas",
+    link: "https://cas.netent.com/cas/view",
     icon: <TrendingUp />
   },
   {
-    header: "Cas",
-    link: "https://cas.netent.com/cas/view",
+    header: "mcm",
+    link: "http://mcm-mcm-test.sta-openshift-app.nix.cydmodule.com/mcm/view/casino-properties",
     icon: <TrendingUp />
   }
 ];

@@ -7,7 +7,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 
 import "./profile.css";
-import * as Constants from "./../../constants";
+import * as Constants from "./../../constants/profile";
 
 /**
  * Component to display the current user's profile.

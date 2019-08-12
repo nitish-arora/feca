@@ -5,7 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
 import "./login.css";
-import * as Constants from "./../../constants";
+import * as Constants from "./../../constants/login";
 
 /**
  * Component to display login form with submit functionality and validation
@@ -86,8 +86,8 @@ class Login extends React.Component {
                 value={this.state.username}
                 onChange={this.onFieldChange}
                 label={
-                  "usernameLabel" in meta //checking property exist in meta
-                    ? !!meta.username && meta.username // and it is not empty
+                  meta["usernameLabel"] && !!meta["usernameLabel"] //checking property exist in meta and it is not empty
+                    ? meta["usernameLabel"]
                     : Constants.USERNAME
                 }
                 margin="normal"
@@ -100,8 +100,8 @@ class Login extends React.Component {
                 name="password"
                 value={this.state.password}
                 label={
-                  "passwordLabel" in meta
-                    ? !!meta.password && meta.password
+                  meta["passwordLabel"] && !!meta["passwordLabel"]
+                    ? meta["passwordLabel"]
                     : Constants.PASSWORD
                 }
                 onChange={this.onFieldChange}
@@ -123,8 +123,8 @@ class Login extends React.Component {
               this.state.username.trim() === "" || this.state.password === ""
             }
           >
-            {"loginBtnLabel" in meta
-              ? !!meta.loginBtnLabel && meta.loginBtnLabel
+            {meta["loginBtnLabel"] && !!meta["loginBtnLabel"]
+              ? meta.loginBtnLabel
               : Constants.LOGIN}
           </Button>
 

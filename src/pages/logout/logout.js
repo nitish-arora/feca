@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 
 import "./logout.css";
-import * as Constants from "./../../constants/index";
+import * as Constants from "./../../constants/logout";
 
 /** Component to show the logout page with the button to go to login page  */
 class Logout extends React.Component {

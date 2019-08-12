@@ -1,5 +1,6 @@
 import decode from "jwt-decode";
 import HttpHelper from "./HttpHelper";
+import * as Api from './../constants/api';
 
 /** class providing methods for authentication purpose */
 class AuthHelper {
@@ -10,7 +11,7 @@ class AuthHelper {
     const isLoggedIn = this.isLoggedIn();
     const token = this.getToken();
     return this.Http.fetch(
-      `/authentication/login`,
+      `${Api.LOGIN}`,
       {
         method: "POST",
         body: JSON.stringify(user)
