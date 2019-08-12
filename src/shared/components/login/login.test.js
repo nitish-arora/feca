@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { act } from "react-dom/test-utils";
 import Enzyme, { mount, shallow, render, unmount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Login from "./login";
@@ -79,29 +78,6 @@ describe("Login Component", () => {
     it("onSubmit should be triggerd on form submission", () => {
       wrapper.find("form").simulate("submit");
       expect(onLogin).toHaveBeenCalled();
-    });
-  });
-
-  describe("login button", () => {
-    let wrapper, username, password, loginButton;
-
-    beforeAll(() => {
-      wrapper = mount(
-        <Login meta={meta} onSubmit={() => {}} onValueChanges={() => {}} />
-      );
-      username = wrapper.find("input#user-input");
-      password = wrapper.find("input#password-input");
-      loginButton = wrapper.find("button");
-    });
-
-    afterAll(() => {
-      wrapper.unmount();
-    });
-
-    it("when both fields are empty button should be disabled", () => {
-      username.instance().value = "";
-      password.instance().value = "";
-      expect(loginButton.prop("disabled")).toBe(true);
     });
   });
 });

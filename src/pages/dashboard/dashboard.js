@@ -29,7 +29,8 @@ const links = [
   },
   {
     header: "mcm",
-    link: "http://mcm-mcm-test.sta-openshift-app.nix.cydmodule.com/mcm/view/casino-properties",
+    link:
+      "http://mcm-mcm-test.sta-openshift-app.nix.cydmodule.com/mcm/view/casino-properties",
     icon: <TrendingUp />
   }
 ];
@@ -66,6 +67,7 @@ class Dashboard extends React.Component {
         <SideNav
           links={links}
           onSidenavClick={link => this.handleSidenavClick(link)}
+          src="/netent-logotype.svg"
         />
         <div className="ne-s-sidenav-target-container">
           <div className="ne-s-target-toolbar">

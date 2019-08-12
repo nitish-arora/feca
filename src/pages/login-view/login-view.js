@@ -58,8 +58,8 @@ class LoginView extends React.Component {
         <div className="ne-s-logotype-item">
           <img
             className="ne-s-logotype-image"
-            src="https://www.netent.com/en/wp-content/themes/netent_corp/assets/img/logotype/netent-logotype.svg"
-            data-fallback="../../assets/icons/netent-logotype-fallback.png"
+            src="/netent-logotype.svg"
+            data-fallback="/netent-logotype.svg"
             alt=""
           />
         </div>
