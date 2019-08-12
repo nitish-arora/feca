@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot with hidden options 1`] = `
+<iframe
+  frameBorder="0"
+  height="100%"
+  src=""
+  title="sidenav-outlet"
+  width="100%"
+/>
+`;

@@ -1,8 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-import "./iframe.css";
-
 /**
  * Component to display src in a iframe
  *
