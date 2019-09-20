@@ -9,29 +9,33 @@ import TrendingUp from "@material-ui/icons/TrendingUp";
 
 import "./dashboard.css";
 import AuthHelper from "./../../utils/AuthHelper";
+import withAuth from "./../../utils/withAuth";
 
 /** array of links to be passed in sidenav component in order to display the options of sidenav*/
 const links = [
   {
     header: "Home",
     link: "",
-    icon: <Home />
+    icon: <Home />,
+    containsLogin: false,
   },
   {
     header: "Mosh Programming",
     link: "https://programmingwithmosh.com/",
-    icon: <TrendingUp />
+    icon: <TrendingUp />,
+    containsLogin: false,
   },
   {
     header: "Cas",
     link: "https://cas.netent.com/cas/view",
-    icon: <TrendingUp />
+    icon: <TrendingUp />,
+    containsLogin: false,
   },
   {
     header: "mcm",
-    link:
-      "http://mcm-mcm-test.sta-openshift-app.nix.cydmodule.com/mcm/view/casino-properties",
-    icon: <TrendingUp />
+    link: "http://mcm-mcm-common-ui-test.sta-openshift-app.nix.cydmodule.com/mcm/view/casino-properties",
+    icon: <TrendingUp />,
+    containsLogin: true,
   }
 ];
 
@@ -42,26 +46,96 @@ class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      src: ""
+      src: "",
+      containsLogin: false,
+      eventType: null,
+      selectedSideNavData: null
     };
     this.handleLogout = this.handleLogout.bind(this);
     this.handleSidenavClick = this.handleSidenavClick.bind(this);
+    this.iframeRef = React.createRef();
   }
+
+  componentDidMount() {
+    window.addEventListener("message", this.iframeListener);
+  }
+
+  iframeListener = (event) => {
+    // const { selectedSideNavData } = this.state;
+    const domains = ["https://nitish-arora.github.io", "http://mcm-mcm-common-ui-test.sta-openshift-app.nix.cydmodule.com"];
+    if (!domains.includes(event.origin)) return;
+    const { isChildLoaded, isStorageDeleted } = event.data;
+    const { eventType } = this.state;
+    if (isChildLoaded) {
+      this.postMessageToIFrame({
+        action: "save",
+        key: "token",
+        value: localStorage.getItem("id_token"),
+      });
+    } else if (isStorageDeleted && eventType === "logout") {
+      this.props.history.push("/logout");
+    }
+    /** ---- TBD ---- */
+    // else if (isStorageDeleted && eventType === "tab") {
+    //   this.setState({ src: selectedSideNavData.link, containsLogin: selectedSideNavData.containsLogin });
+    // }
+    /** !---- TBD ---- */
+  }
+
+  /** listener for data sent by url opened in iframe */
 
   /** event emitted from sidenav for handling logout functionality */
   handleLogout = () => {
+    this.setState({ eventType: "logout" });
     this.Auth.logout().then(() => {
-      this.props.history.push("/logout");
+      if (this.state.containsLogin) {
+        this.postMessageToIFrame({
+          action: "delete",
+          key: "token",
+        });
+      } else {
+        this.props.history.push("/logout");
+      }
     });
   };
 
+  /** post the message to the url opened in iframe */
+  postMessageToIFrame = ({ action, key, value }) => {
+    const iframeRef = this.iframeRef.current;
+    if (iframeRef) {
+      iframeRef.contentWindow.postMessage({
+        action: action,
+        key: key,
+        value: value,
+      }, "*");
+    }
+  }
+
   /** event emitted from sidenav for handling the clicking on sidenav options */
-  handleSidenavClick(link) {
-    this.setState({ src: link }); //setting the link for iframe
+  handleSidenavClick(selectedOption) {
+    /** ---- TBD ---- */
+
+    // this.setState({ eventType: "tab", selectedSideNavData: selectedOption });
+    // if (!this.state.containsLogin) {
+    //   this.setState({ src: selectedOption.link, containsLogin: selectedOption.containsLogin }); //setting the link for iframe
+    //   return;
+    // }
+    // this.postMessageToIFrame({
+    //   action: "delete",
+    //   key: "token",
+    // });
+
+    /** !---- TBD ---- */
+
+    this.setState({ src: selectedOption.link, containsLogin: selectedOption.containsLogin }); //setting the link for iframe
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("message", this.iframeListener);
   }
 
   render() {
-    const user = this.Auth.getParsedToken();
+    const { userData: user } = this.props;
     return (
       <div className="ne-s-main-container">
         <SideNav
@@ -77,10 +151,10 @@ class Dashboard extends React.Component {
           </div>
           <div className="ne-s-sidenav-outlet">
             {this.state.src ? (
-              <IFrame src={this.state.src} />
+              <IFrame ref={this.iframeRef} src={this.state.src} className={this.state.containsLogin ? 'contains-login' : ""} />
             ) : (
-              <div className="home-title">Home</div>
-            )}
+                <div className="home-title">Home</div>
+              )}
           </div>
         </div>
       </div>
@@ -88,4 +162,4 @@ class Dashboard extends React.Component {
   }
 }
 
-export default withRouter(Dashboard);
+export default withAuth(withRouter(Dashboard));

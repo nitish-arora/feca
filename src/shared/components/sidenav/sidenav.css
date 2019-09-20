@@ -12,6 +12,7 @@
 
 .ne-s-logotype-item > img {
     max-width: 112px;
+    margin-left: 20px;
 }
 
 .ne-s-tree .menu-list {
@@ -41,3 +42,24 @@
 .ne-s-tree .selected-sidenav {
     color: #68d122;
 }
+
+.minimized-sidenav{
+    display: none;
+}
+
+.minimized-sidenavbar {
+    background-color: #212426;
+    width: 40px;
+}
+
+.sidenav-menu-icon {
+    color: white;
+    margin-top: 20px;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.ne-s-menu-container {
+    display: flex;
+} 
+ 

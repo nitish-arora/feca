@@ -4,7 +4,6 @@ import "./index.css";
 import {
   Route,
   Switch,
-  Redirect,
   BrowserRouter as Router
 } from "react-router-dom";
 
@@ -14,21 +13,14 @@ import Logout from "./pages/logout";
 import Notfound from "./pages/notfound";
 import * as serviceWorker from "./serviceWorker";
 
+
+
 const routing = (
   <Router basename={process.env.PUBLIC_URL}>
     <React.Fragment>
       <Switch>
         <Route exact path="/" component={App} />
-        <Route
-          path="/dashboard"
-          render={() =>
-            !!localStorage.getItem("id_token") ? (
-              <Dashboard />
-            ) : (
-              <Redirect to="/" />
-            )
-          }
-        />
+        <Route path="/dashboard" component={Dashboard} />
         <Route path="/logout" component={Logout} />
         <Route component={Notfound} />
       </Switch>

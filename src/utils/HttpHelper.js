@@ -1,4 +1,4 @@
-import * as Api from './../constants/api';
+import * as Api from "./../constants/api";
 
 class HttpHelper {
   /** performs api call with required headers */

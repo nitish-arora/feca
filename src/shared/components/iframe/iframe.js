@@ -20,7 +20,7 @@ import PropTypes from "prop-types";
 
 class IFrame extends React.Component {
   render() {
-    const { src, width, height } = this.props;
+    const { src, width, height, innerRef, className: classes } = this.props;
     return (
       <iframe
         title="sidenav-outlet"
@@ -28,6 +28,8 @@ class IFrame extends React.Component {
         width={width ? width : "100%"}
         height={height ? height : "100%"}
         frameBorder="0"
+        ref={innerRef}
+        className={classes}
       />
     );
   }
@@ -40,4 +42,4 @@ IFrame.propTypes = {
   height: PropTypes.string
 };
 
-export default IFrame;
+export default React.forwardRef((props, ref) => <IFrame innerRef={ref} {...props} />);

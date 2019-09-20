@@ -1,6 +1,6 @@
 import decode from "jwt-decode";
 import HttpHelper from "./HttpHelper";
-import * as Api from './../constants/api';
+import * as Api from "./../constants/api";
 
 /** class providing methods for authentication purpose */
 class AuthHelper {
