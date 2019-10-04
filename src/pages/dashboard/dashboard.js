@@ -53,7 +53,9 @@ class Dashboard extends React.Component {
     };
     this.handleLogout = this.handleLogout.bind(this);
     this.handleSidenavClick = this.handleSidenavClick.bind(this);
+    this.handleSidenavToggle = this.handleSidenavToggle.bind(this);
     this.iframeRef = React.createRef();
+    this.sidenavTargetRef = React.createRef();
   }
 
   componentDidMount() {
@@ -130,6 +132,14 @@ class Dashboard extends React.Component {
     this.setState({ src: selectedOption.link, containsLogin: selectedOption.containsLogin }); //setting the link for iframe
   }
 
+  handleSidenavToggle(isSidenavHidden) {
+    if(isSidenavHidden) {
+      this.sidenavTargetRef.current.style.marginLeft = "0";
+    } else {
+      this.sidenavTargetRef.current.style.marginLeft = "250px";
+    }
+  }
+
   componentWillUnmount() {
     window.removeEventListener("message", this.iframeListener);
   }
@@ -141,9 +151,10 @@ class Dashboard extends React.Component {
         <SideNav
           links={links}
           onSidenavClick={link => this.handleSidenavClick(link)}
+          onSidenavToggle={isHidden => this.handleSidenavToggle(isHidden)}
           src="/netent-logotype.svg"
         />
-        <div className="ne-s-sidenav-target-container">
+        <div ref={this.sidenavTargetRef} className="ne-s-sidenav-target-container">
           <div className="ne-s-target-toolbar">
             {user.username ? (
               <Profile user={user} onLogout={() => this.handleLogout()} />

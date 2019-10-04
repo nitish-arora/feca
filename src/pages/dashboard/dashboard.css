@@ -12,6 +12,8 @@
 .ne-s-main-container .ne-s-sidenav-target-container {
     height: 100%;
     width: 100%;
+    margin-left: 250px;
+    transition: margin-left .5s;
 }
 
 .ne-s-sidenav-target-container .ne-s-sidenav-outlet > h3 {

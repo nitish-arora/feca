@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./sidenav.css";
 import Menu from "@material-ui/icons/Menu";
+import classNames from "classnames";
 
 /**
  * Component for creating sidenav
@@ -28,8 +29,9 @@ class SideNav extends React.Component {
     super(props);
     this.state = {
       selectedOption: null,
-      flagToHide: true
+      isSidenavOpened: true
     };
+    this.sideNavRef = React.createRef();
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -47,51 +49,67 @@ class SideNav extends React.Component {
 
   }
 
-  hidesidenav(flagToHide) {
+  hidesidenav(isSidenavOpened) {
     this.setState({
-      flagToHide: !flagToHide
+      isSidenavOpened: !isSidenavOpened
     });
+    if(this.state.isSidenavOpened) {
+      this.sideNavRef.current.style.width = "0";
+    } else {
+      this.sideNavRef.current.style.width = "250px";
+    }
+    this.props.onSidenavToggle(this.state.isSidenavOpened);
   }
 
   render() {
     const { links, src } = this.props;
     const { selectedOption } = this.state;
+    const sidenavIconContainerClasses = classNames(
+      'sidenav-toggle-container',
+      {
+        'sidenav-menu-icon-minimized': !this.state.isSidenavOpened
+      }
+    )
     return (
-      <div className={this.state.flagToHide ? "ne-s-sidenav-container" : "minimized-sidenavbar"}>
-        <div className="ne-s-menu-container">
+      <React.Fragment>
+        <div className={sidenavIconContainerClasses}>
           <div
             className='sidenav-menu-icon'
-            onClick={() => this.hidesidenav(this.state.flagToHide)}
+            onClick={() => this.hidesidenav(this.state.isSidenavOpened)}
           >
             <Menu />
           </div>
-          <div className={this.state.flagToHide ? "ne-s-logotype-item" : "minimized-sidenav"}>
-            <img
-              src={
-                src ||
-                "https://www.netent.com/en/wp-content/themes/netent_corp/assets/img/logotype/netent-logotype.svg"
-              }
-              alt=""
-            />
+        </div>
+        <div ref={this.sideNavRef} className={"ne-s-sidenav-container"}>
+          <div className="ne-s-menu-container">
+            <div className={"ne-s-logotype-item"}>
+              <img
+                src={
+                  src ||
+                  "https://www.netent.com/en/wp-content/themes/netent_corp/assets/img/logotype/netent-logotype.svg"
+                }
+                alt=""
+              />
+            </div>
+          </div>
+          <div className={"ne-s-tree"}>
+            {links.map((link, i) => (
+              <div
+                key={link.header}
+                className={`menu-list ${
+                  selectedOption.header === link.header ? "selected-sidenav" : ""
+                  }`}
+                onClick={() => this.handleClick(link)}
+              >
+                {link["icon"] ? (
+                  <span className="nav-icon">{link.icon}</span>
+                ) : null}
+                <span className="text-header">{link.header}</span>
+              </div>
+            ))}
           </div>
         </div>
-        <div className={this.state.flagToHide ? "ne-s-tree" : "minimized-sidenav"}>
-          {links.map((link, i) => (
-            <div
-              key={link.header}
-              className={`menu-list ${
-                selectedOption.header === link.header ? "selected-sidenav" : ""
-                }`}
-              onClick={() => this.handleClick(link)}
-            >
-              {link["icon"] ? (
-                <span className="nav-icon">{link.icon}</span>
-              ) : null}
-              <span className="text-header">{link.header}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
