@@ -1,7 +1,23 @@
+.sidenav-toggle-container {
+    z-index: 2;
+    height: 70px;
+    position: fixed;
+    background-color: #212426;
+}
+
 .ne-s-sidenav-container {
-    height: 100vh;
+    /* height: 100vh;
     background: #212426;
-    min-width: 256px;
+    min-width: 256px; */
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #212426;
+    overflow-x: hidden;
+    transition: 0.5s;
 }
 
 .ne-s-sidenav-container .ne-s-logotype-item {
@@ -61,5 +77,14 @@
 
 .ne-s-menu-container {
     display: flex;
-} 
+    padding-left: 40px;
+}
+
+.sidenav-toggle-container.sidenav-menu-icon-minimized {
+    background-color: white;
+}
+
+.sidenav-toggle-container.sidenav-menu-icon-minimized > .sidenav-menu-icon {
+    color: black;
+}
  
